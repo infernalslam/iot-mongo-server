@@ -5,16 +5,13 @@
   var Schema = mongoose.Schema
 
   var schema = new Schema({
-    ip_addr: {
-      type: String,
-      required: true
-    },
-    port: Number,
-    name: {
-      type: String,
-      required: true
-    },
-    date: { type: Date, default: Date.now }
+    Data: {
+      timestamp: Number,
+       iot_id: Number, 
+       temperature: Number, 
+       relative_humidity: Number
+     }
+
   })
 
   module.exports = mongoose.model(modelName, schema)

@@ -3,7 +3,7 @@
 		var app = express()
 		var bodyParser = require('body-parser')
 
-	    mongoose.connect('mongodb://localhost:27017/homework_db')
+	    mongoose.connect('mongodb://localhost:27017/db')
 
 		app.use(express.static('public'))
 
