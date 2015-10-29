@@ -17,11 +17,23 @@ angular.module('todoApp', [])
         }
         todoList.show.push(data_input)
      }*/
-    
- 
+    getHomeworks() // showget api
+
+   function getHomeworks () {
      $http.get('/api/homework')
               .then(function success (response) {
           todoList.homeworks = response.data
+        }, function error (response) {
+          alert(response.data.message)
+        })
+    }
+
+
+    $http.post('/api/homework', data)
+        .then(function success (response) {
+          console.log(response)
+          getHomeworks()
+          alert('Success')
         }, function error (response) {
           alert(response.data.message)
         })
