@@ -9,6 +9,17 @@
     <h2>iot<h2>
     <div ng-controller="TodoListController as todoList">
       
+        {{todoList.name}}
+
+        <form ng-submit="todoList.add(input)">
+              number1 :<input type="number" ng-model ="input.n1">
+              <input type="submit">
+        </form>
+
+        <div ng-repeat="show in todoList.show">
+            {{show.number1}}
+        </div>
+
     </div>
   </body>
 </html>
