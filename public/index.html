@@ -9,7 +9,7 @@
     <h2>iot<h2>
     <div ng-controller="TodoListController as todoList">
       
-        {{todoList.name}}
+        <!--{{todoList.name}}
 
         <form ng-submit="todoList.add(input)">
               timestamp :<input type="number" ng-model ="input.timestamp"> <br>
@@ -25,8 +25,16 @@
           temperature:{{show.Data.temperature}} <br>
           relative_humidity: {{show.Data.relative_humidity}} <br>
             <u>
-        </div>
+        </div>-->
 
+   
+
+     <div ng-repeat="show in todoList.homeworks">
+          timestamp: {{show.Data.timestamp}} <br>
+          iot_id: {{show.Data.iot_id}} <br>
+          temperature:{{show.Data.temperature}} <br>
+          relative_humidity: {{show.Data.relative_humidity}} <br>
+        </div>
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
 
   var schema = new Schema({
     Data: {
-      timestamp: Number,
+       timestamp: Number,
        iot_id: Number, 
        temperature: Number, 
        relative_humidity: Number
