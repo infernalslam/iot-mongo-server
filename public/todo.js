@@ -8,7 +8,12 @@ angular.module('todoApp', [])
 
      todoList.add = function (input){
         var data_input = {
-            number1 : input.n1
+            Data: {
+               timestamp: input.timestamp,
+               iot_id: input.iot_id, 
+               temperature: input.temperature, 
+               relative_humidity: input.relative_humidity
+                }
         }
         todoList.show.push(data_input)
      }

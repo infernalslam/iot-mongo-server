@@ -12,12 +12,19 @@
         {{todoList.name}}
 
         <form ng-submit="todoList.add(input)">
-              number1 :<input type="number" ng-model ="input.n1">
+              timestamp :<input type="number" ng-model ="input.timestamp"> <br>
+              iot_id :<input type="number" ng-model ="input.iot_id"><br>
+              temperature :<input type="number" ng-model ="input.temperature"><br>
+              relative_humidity :<input type="number" ng-model ="input.relative_humidity"><br>
               <input type="submit">
         </form>
 
         <div ng-repeat="show in todoList.show">
-            {{show.number1}}
+          timestamp: {{show.Data.timestamp}} <br>
+          iot_id: {{show.Data.iot_id}} <br>
+          temperature:{{show.Data.temperature}} <br>
+          relative_humidity: {{show.Data.relative_humidity}} <br>
+            <u>
         </div>
 
     </div>
