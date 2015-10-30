@@ -1,5 +1,5 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function($http) {
+  .controller('TodoListController', function($http,$interval) {
     var todoList = this
 
      /*todoList.name ='tak'
@@ -29,10 +29,21 @@ angular.module('todoApp', [])
     }
 
     todoList.submit = function (input) {
+      //alert('yes insert')
       saveHomework(input)
     }
 
+    function saveHomework (data){
+      $http.post('/api/homework', {Data:data})
+        .then(function success (response) {
+          console.log(response)
+          getHomeworks()
+          alert('Success')
+        }, function error (response) {
+          alert(response.data.message)
+        })
 
+    }
     
    
 
