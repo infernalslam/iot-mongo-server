@@ -3,6 +3,9 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="todo.js"></script>
+    <!-- test chart.js-->
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="Chart.js"></script>
  
   </head>
   <body>
@@ -26,6 +29,34 @@
           relative_humidity: {{show.Data.relative_humidity}} <br>
             <u>
         </div>-->
+        <canvas id="c" width="1000" height="500"></canvas>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+            <script>
+              var ctx = document.getElementById("c").getContext("2d");
+              var data = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                  label: "My First dataset",
+                  fillColor: "rgba(220,220,220,0.2)",
+                  strokeColor: "rgba(220,220,220,1)",
+                  pointColor: "rgba(220,220,220,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(220,220,220,1)",
+                  data: [65, 59, 80, 81, 56, 55, 40]
+                }, {
+                  label: "My Second dataset",
+                  fillColor: "rgba(151,187,205,0.2)",
+                  strokeColor: "rgba(151,187,205,1)",
+                  pointColor: "rgba(151,187,205,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(151,187,205,1)",
+                  data: [28, 48, 40, 19, 86, 27, 90]
+                }]
+              };
+              var MyNewChart = new Chart(ctx).Line(data);
+            </script>
 
 
 
@@ -43,13 +74,79 @@
               report : {{$index}} <br>
               id : {{show._id}} <br>
               <ng-model="input_del={{show._id}}">
-              timestamp: {{show.Data.timestamp}} <br>
-              iot_id: {{show.Data.iot_id}} <br>
-              temperature:{{show.Data.temperature}} <br>
-              relative_humidity: {{show.Data.relative_humidity}} <br>
+              timestamp: {{show.timestamp}} <br>
+              iot_id: {{show.iot_id}} <br>
+              temperature:{{show.temperature}} <br>
+              relative_humidity: {{show.relative_humidity}} <br>
               <button ng-click ="todoList.del(input_del , $index)">delete</button> <br>
               -------------------------------------------------
             </div>
+
+             --------------------------------------------------------
+               
+             <!--<canvas id="mycanvas" width="256" height="256">
+            
+            <script>
+              $(document).ready(function(){
+                var ctx = $("#mycanvas").get(0).getContext("2d");
+
+                //pie chart data
+                //sum of values = 360
+                var data = [
+                  {
+                    value: 270,
+                    color: "cornflowerblue",
+                    highlight: "lightskyblue",
+                    label: "Corn Flower Blue"
+                  },
+                  {
+                    value: 50,
+                    color: "lightgreen",
+                    highlight: "yellowgreen",
+                    label: "Lightgreen"
+                  },
+                  {
+                    value: 40,
+                    color: "orange",
+                    highlight: "darkorange",
+                    label: "Orange"
+                  }
+                ];
+
+                //draw
+                var piechart = new Chart(ctx).Pie(data);
+              });
+            </script>-->
+
+            <!--<canvas id="c" width="1000" height="500"></canvas>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+            <script>
+              var ctx = document.getElementById("c").getContext("2d");
+              var data = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                  label: "My First dataset",
+                  fillColor: "rgba(220,220,220,0.2)",
+                  strokeColor: "rgba(220,220,220,1)",
+                  pointColor: "rgba(220,220,220,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(220,220,220,1)",
+                  data: [65, 59, 80, 81, 56, 55, 40]
+                }, {
+                  label: "My Second dataset",
+                  fillColor: "rgba(151,187,205,0.2)",
+                  strokeColor: "rgba(151,187,205,1)",
+                  pointColor: "rgba(151,187,205,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(151,187,205,1)",
+                  data: [28, 48, 40, 19, 86, 27, 90]
+                }]
+              };
+              var MyNewChart = new Chart(ctx).Line(data);
+            </script>-->
+
     </div>
   </body>
 </html>

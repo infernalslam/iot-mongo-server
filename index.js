@@ -2,6 +2,7 @@
 		var express = require('express')
 		var app = express()
 		var bodyParser = require('body-parser')
+		/*insert code*/
 		var Model  = require('./models/homework/homework.schema.js')
 	    mongoose.connect('mongodb://localhost:27017/db_test')
 
