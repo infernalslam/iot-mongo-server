@@ -28,15 +28,12 @@ angular.module('todoApp', [])
         })
     }
 
+    todoList.submit = function (input) {
+      saveHomework(input)
+    }
 
-    $http.post('/api/homework', data)
-        .then(function success (response) {
-          console.log(response)
-          getHomeworks()
-          alert('Success')
-        }, function error (response) {
-          alert(response.data.message)
-        })
+
+    
    
 
 
