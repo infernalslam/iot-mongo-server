@@ -51,9 +51,9 @@ angular.module('todoApp', [])
     /*test delete*/
       //todoList.del_id = ''
 
-      todoList.del = function (input_del) {
-        alert('delete')
-        console.log("id :"+input_del)
+      todoList.del = function (input_del,index) {
+        alert('delete'+'report:'+index)
+        console.log('id :'+input_del)
 
 
       }
