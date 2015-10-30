@@ -6,6 +6,7 @@
     <!-- test chart.js-->
     <script src="jquery-2.1.4.min.js"></script>
     <script src="Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
  
   </head>
   <body>
@@ -30,9 +31,10 @@
             <u>
         </div>-->
         <canvas id="c" width="1000" height="500"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+          
             <script>
               var ctx = document.getElementById("c").getContext("2d");
+              
               var data = {
                 labels: ["Iot_id1", "Iot_id2", "Iot_id3", "Iot_id4", "Iot_id5", "Iot_id6", "Iot_id7","Iot_id8","Iot_id9"],
                 datasets: [{
@@ -52,7 +54,7 @@
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
                   pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [28, 48, 40, 19, 86, 27, 90,95,87,11]
+                  data: [10, 48, 40, 19, 86, 27, 90,95,87,11]
                 }, {
                   label: "relative_humidity",
                   fillColor: "rgba(220,66,656,0.2)",
@@ -67,6 +69,7 @@
               };
               var MyNewChart = new Chart(ctx).Line(data);
             </script>
+ 
 
 
 
@@ -78,9 +81,11 @@
               relative_humidity :<input type="number" ng-model ="input.relative_humidity"><br>
               <input type="submit">
         </form>
-   
 
-         <div ng-repeat="show in todoList.homeworks">
+
+   
+  
+         <div ng-repeat="show in todoList.homeworks"> 
               report : {{$index}} <br>
               id : {{show._id}} <br>
               <ng-model="input_del={{show._id}}">
@@ -91,8 +96,11 @@
               <button ng-click ="todoList.del(input_del , $index)">delete</button> <br>
               -------------------------------------------------
             </div>
+           
 
-             --------------------------------------------------------
+
+
+             
                
              <!--<canvas id="mycanvas" width="256" height="256">
             

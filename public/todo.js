@@ -56,7 +56,16 @@ angular.module('todoApp', [])
         console.log('id :'+input_del)
 
 
+
       }
+
+      /*testchart*/
+
+      
+
+      //console.log(todoList.homeworks[0])
+
+
 
       
 
