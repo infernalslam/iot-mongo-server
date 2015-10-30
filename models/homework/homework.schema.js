@@ -7,12 +7,12 @@
   var Schema = mongoose.Schema
 
   var schema = new Schema({
-    Data: {
+
        timestamp: Number,
        iot_id: Number, 
        temperature: Number, 
        relative_humidity: Number
-     }
+     
 
   })
 

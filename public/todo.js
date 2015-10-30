@@ -37,7 +37,7 @@ angular.module('todoApp', [])
     }
 
     function saveHomework (data){
-      $http.post('/api/homework', {Data:data}) //insert object
+      $http.post('/api/homework', data) //insert object
         .then(function success (response) {
           console.log(response)
           getHomeworks()

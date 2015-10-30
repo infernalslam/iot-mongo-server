@@ -2,7 +2,7 @@
 		var express = require('express')
 		var app = express()
 		var bodyParser = require('body-parser')
-
+		var Model  = require('./models/homework/homework.schema.js')
 	    mongoose.connect('mongodb://localhost:27017/db_test')
 
 		app.use(express.static('public'))
@@ -16,6 +16,17 @@
 		/*test delete*/
 		//var objdelte = require ('./models/homework/homework.route.js')
 		//app.delete('')
+
+		app.post('/', function (req, res, next) {
+		    var obj = new Model(req.body)
+		    obj.save(function (err, obj) {
+		      if (err) {
+		        res.status(500).send(err)
+		      } else {
+		        res.send(obj)
+		      }
+		    })
+		  })
 
 		
 
