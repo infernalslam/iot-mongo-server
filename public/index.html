@@ -34,26 +34,36 @@
             <script>
               var ctx = document.getElementById("c").getContext("2d");
               var data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["Iot_id1", "Iot_id2", "Iot_id3", "Iot_id4", "Iot_id5", "Iot_id6", "Iot_id7","Iot_id8","Iot_id9"],
                 datasets: [{
-                  label: "My First dataset",
-                  fillColor: "rgba(220,220,220,0.2)",
-                  strokeColor: "rgba(220,220,220,1)",
-                  pointColor: "rgba(220,220,220,1)",
+                  label: "timestamp",
+                  fillColor: "rgba(12,362,220,0.2)",
+                  strokeColor: "rgba(12,362,220,1)",
+                  pointColor: "rgba(12,362,220,1)",
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(220,220,220,1)",
-                  data: [65, 59, 80, 81, 56, 55, 40]
+                  pointHighlightStroke: "rgba(12,220,220,1)",
+                  data: [65, 59, 80, 81, 56, 55, 40,85,49,641]
                 }, {
-                  label: "My Second dataset",
+                  label: "temperature",
                   fillColor: "rgba(151,187,205,0.2)",
                   strokeColor: "rgba(151,187,205,1)",
                   pointColor: "rgba(151,187,205,1)",
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
                   pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [28, 48, 40, 19, 86, 27, 90]
+                  data: [28, 48, 40, 19, 86, 27, 90,95,87,11]
+                }, {
+                  label: "relative_humidity",
+                  fillColor: "rgba(220,66,656,0.2)",
+                  strokeColor: "rgba(220,66,220,1)",
+                  pointColor: "rgba(220,66,656,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(656,220,220,1)",
+                  data: [12, 45, 55, 78, 88, 55, 40,165,99,71]
                 }]
+                
               };
               var MyNewChart = new Chart(ctx).Line(data);
             </script>
