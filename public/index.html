@@ -70,7 +70,9 @@
               var MyNewChart = new Chart(ctx).Line(data);
             </script>
  
-
+              <!--<div ng-repeat="test in todoList.homeworks"> 
+              timestamp :{{todoList.homeworks[0].timestamp}}
+              </div>-->
 
 
 
@@ -88,12 +90,15 @@
          <div ng-repeat="show in todoList.homeworks"> 
               report : {{$index}} <br>
               id : {{show._id}} <br>
-              <ng-model="input_del={{show._id}}">
+              <!--<ng-model="input_del={{show._id}}">-->
               timestamp: {{show.timestamp}} <br>
+
+              <!--<div ng-model="timestamp=[{{show.timestamp}}]"></div>-->
               iot_id: {{show.iot_id}} <br>
               temperature:{{show.temperature}} <br>
               relative_humidity: {{show.relative_humidity}} <br>
               <button ng-click ="todoList.del(input_del , $index)">delete</button> <br>
+
               -------------------------------------------------
             </div>
            
