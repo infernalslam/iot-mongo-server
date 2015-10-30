@@ -13,6 +13,10 @@
 		var homework = require('./models/homework/homework.route.js')
 		app.use('/api/homework', homework)
 
+		/*test delete*/
+		//var objdelte = require ('./models/homework/homework.route.js')
+		//app.delete('')
+
 		
 
 		var server = app.listen(3000, function () {

@@ -41,10 +41,12 @@
 
          <div ng-repeat="show in todoList.homeworks">
               id : {{show._id}} <br>
+              <ng-model="input_del={{show._id}}">
               timestamp: {{show.Data.timestamp}} <br>
               iot_id: {{show.Data.iot_id}} <br>
               temperature:{{show.Data.temperature}} <br>
               relative_humidity: {{show.Data.relative_humidity}} <br>
+              <button ng-click ="todoList.del(input_del)">delete</button>
               -------------------------------------------------
             </div>
     </div>

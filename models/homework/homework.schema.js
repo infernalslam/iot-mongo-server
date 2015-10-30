@@ -2,6 +2,8 @@
   'use strict'
   var modelName = 'homework'
   var mongoose = require('mongoose')
+  /*test*/
+ 
   var Schema = mongoose.Schema
 
   var schema = new Schema({
@@ -13,6 +15,10 @@
      }
 
   })
+
+  /*test delete*/
+  
+
 
   module.exports = mongoose.model(modelName, schema)
 })()
