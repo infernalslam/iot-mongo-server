@@ -18,6 +18,9 @@ angular.module('todoApp', [])
         todoList.show.push(data_input)
      }*/
     getHomeworks() // showget api
+    $interval(function () {
+      getHomeworks()
+    }, 5000)
 
    function getHomeworks () {
      $http.get('/api/homework')
@@ -34,7 +37,7 @@ angular.module('todoApp', [])
     }
 
     function saveHomework (data){
-      $http.post('/api/homework', {Data:data})
+      $http.post('/api/homework', {Data:data}) //insert object
         .then(function success (response) {
           console.log(response)
           getHomeworks()
