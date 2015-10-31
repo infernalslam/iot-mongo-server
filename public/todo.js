@@ -83,34 +83,68 @@ angular.module('todoApp', [])
             }
             console.log(todoList.polarData)*/
 
-      getChart ()
+      getChart1 ()
 
      
       todoList.datachart =[]
 
-      function getChart () {
+      function getChart1 () {
      $http.get('/api/homework')
               .then(function success (response) {
           chart = response.data //testchart
          // console.log(chart[0].temperature)//testchart
          
          var data = [] //datachart
+         var temperature=0
+         var relative_humidity=0
          var count=0
           for(var i =0;i<response.data.length;i++){
               if (response.data[i].iot_id==1){
-                  /*count++
-                  console.log('count :'+count)*/
-                  data.push(
+                  count++
+                  //console.log('count :'+count)
+                  temperature = response.data[i].temperature + temperature
+                  relative_humidity = response.data[i].relative_humidity + relative_humidity
+                  console.log(temperature)
+
+                  /*data.push(
                   {
                       value: response.data[i].temperature,
                       color:"#F7464A",
                       highlight: "#FF5A5E",
-                      label: "iot_1"
+                      label: "iot_id : 1"
                   })
+                  data.push(
+                  {
+                      value: response.data[i].relative_humidity,
+                      color:"#449",
+                      highlight: "#FF5A5E",
+                      label: "iot_id : 1"   
+
+                  })*/
+                    
 
 
-              }/*testlooparrary*/
-          }
+              }/*testif*/
+          }/*testloopfor*/
+            var sumtemperature =0
+            var sumrelative_humidity=0
+            sumtemperature = temperature/count
+           sumrelative_humidity = relative_humidity/count
+
+          data.push(
+                  {
+                      value: sumtemperature,
+                      color:"#F7464A",
+                      highlight: "#FF5A5E",
+                      label: "iot_id1 : temp"
+                  },{
+                      value: sumrelative_humidity,
+                      color:"#449",
+                      highlight: "#450",
+                      label: "iot_id1 : relative"   
+
+                  })
+      
          
          var ctx = document.getElementById("c").getContext("2d");
          
@@ -147,7 +181,8 @@ angular.module('todoApp', [])
                   }
 
               ];*/
-           var MyNewChart =  new Chart(ctx).PolarArea(data);
+           //var MyNewChart =  new Chart(ctx).PolarArea(data);
+           var myPieChart = new Chart(ctx).Pie(data);
 
 
         }, function error (response) {
