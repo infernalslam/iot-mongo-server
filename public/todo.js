@@ -60,15 +60,14 @@ angular.module('todoApp', [])
       }
 
 
+           
 
-
-
-
-
+          
 
              
 
-              console.log('test')
+            
+
 
 
 
@@ -80,13 +79,13 @@ angular.module('todoApp', [])
 
       /*testchart*/
 
+
       
 
       //console.log(todoList.homeworks[0])
 
-
-
       
+       
 
 
 

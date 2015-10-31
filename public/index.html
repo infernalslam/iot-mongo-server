@@ -12,70 +12,47 @@
   <body>
     <h2>iot<h2>
     <div ng-controller="TodoListController as todoList">
+
+          <canvas id="c" width="1000" height="500"></canvas>
+  
+              <script>
+                var ctx = document.getElementById("c").getContext("2d");
+                var data = {
+                  labels: ["iot_id1", "iot_id2", "iot_id3", "iot_id4", "iot_id5", "iot_id6", "iot_id7", "iot_id8" ,"iot_id9"],
+                  datasets: [{
+                    label: "timestamp",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    //data: [65, 59, 80, 81, 56, 55, 40]
+                  }, {
+                    label: "temperature",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    //data: [28, 48, 40, 19, 86, 27, 90]
+                  },{
+                    label: "relative_humidity",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    //data: [28, 48, 40, 19, 86, 27, 90]
+                  }]
+                };
+                var MyNewChart = new Chart(ctx).Line(data);
+              </script>
+
+
       
-        <!--{{todoList.name}}
-
-        <form ng-submit="todoList.add(input)">
-              timestamp :<input type="number" ng-model ="input.timestamp"> <br>
-              iot_id :<input type="number" ng-model ="input.iot_id"><br>
-              temperature :<input type="number" ng-model ="input.temperature"><br>
-              relative_humidity :<input type="number" ng-model ="input.relative_humidity"><br>
-              <input type="submit">
-        </form>
-
-        <div ng-repeat="show in todoList.show">
-          timestamp: {{show.Data.timestamp}} <br>
-          iot_id: {{show.Data.iot_id}} <br>
-          temperature:{{show.Data.temperature}} <br>
-          relative_humidity: {{show.Data.relative_humidity}} <br>
-            <u>
-        </div>-->
-        <canvas id="c" width="1000" height="500"></canvas>
-          
-            <script>
-              var ctx = document.getElementById("c").getContext("2d");
-              
-              var data = {
-                labels: ["Iot_id1", "Iot_id2", "Iot_id3", "Iot_id4", "Iot_id5", "Iot_id6", "Iot_id7","Iot_id8","Iot_id9"],
-                datasets: [{
-                  label: "timestamp",
-                  fillColor: "rgba(12,362,220,0.2)",
-                  strokeColor: "rgba(12,362,220,1)",
-                  pointColor: "rgba(12,362,220,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(12,220,220,1)",
-                  data: [65, 59, 80, 81, 56, 55, 40,85,49,641]
-                }, {
-                  label: "temperature",
-                  fillColor: "rgba(151,187,205,0.2)",
-                  strokeColor: "rgba(151,187,205,1)",
-                  pointColor: "rgba(151,187,205,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [10, 48, 40, 19, 86, 27, 90,95,87,11]
-                }, {
-                  label: "relative_humidity",
-                  fillColor: "rgba(220,66,656,0.2)",
-                  strokeColor: "rgba(220,66,220,1)",
-                  pointColor: "rgba(220,66,656,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(656,220,220,1)",
-                  data: [12, 45, 55, 78, 88, 55, 40,165,99,71]
-                }]
-                
-              };
-              var MyNewChart = new Chart(ctx).Line(data);
-            </script>
- 
-              <!--<div ng-repeat="test in todoList.homeworks"> 
-              timestamp :{{todoList.homeworks[0].timestamp}}
-              </div>-->
-
-
-
         <form ng-submit="todoList.submit(input)">
               timestamp :<input type="number" ng-model ="input.timestamp"> <br>
               iot_id :<input type="number" ng-model ="input.iot_id"><br>
@@ -101,74 +78,6 @@
 
               -------------------------------------------------
             </div>
-           
-
-
-
-             
-               
-             <!--<canvas id="mycanvas" width="256" height="256">
-            
-            <script>
-              $(document).ready(function(){
-                var ctx = $("#mycanvas").get(0).getContext("2d");
-
-                //pie chart data
-                //sum of values = 360
-                var data = [
-                  {
-                    value: 270,
-                    color: "cornflowerblue",
-                    highlight: "lightskyblue",
-                    label: "Corn Flower Blue"
-                  },
-                  {
-                    value: 50,
-                    color: "lightgreen",
-                    highlight: "yellowgreen",
-                    label: "Lightgreen"
-                  },
-                  {
-                    value: 40,
-                    color: "orange",
-                    highlight: "darkorange",
-                    label: "Orange"
-                  }
-                ];
-
-                //draw
-                var piechart = new Chart(ctx).Pie(data);
-              });
-            </script>-->
-
-            <!--<canvas id="c" width="1000" height="500"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-            <script>
-              var ctx = document.getElementById("c").getContext("2d");
-              var data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                  label: "My First dataset",
-                  fillColor: "rgba(220,220,220,0.2)",
-                  strokeColor: "rgba(220,220,220,1)",
-                  pointColor: "rgba(220,220,220,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(220,220,220,1)",
-                  data: [65, 59, 80, 81, 56, 55, 40]
-                }, {
-                  label: "My Second dataset",
-                  fillColor: "rgba(151,187,205,0.2)",
-                  strokeColor: "rgba(151,187,205,1)",
-                  pointColor: "rgba(151,187,205,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [28, 48, 40, 19, 86, 27, 90]
-                }]
-              };
-              var MyNewChart = new Chart(ctx).Line(data);
-            </script>-->
 
     </div>
   </body>
