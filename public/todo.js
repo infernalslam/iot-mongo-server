@@ -62,49 +62,74 @@ angular.module('todoApp', [])
 
       }
 
+
+
+      /*todoList.iot = response.data
+            for(var i =0;i<response.data.length;i++) // loop for length array
+            {
+            // push data in todoList.polarData
+              todoList.polarData.push({
+            value: response.data[i].temperature, 
+            color: "#46BFBD",
+                highlight: "#5AD3D1",
+            label: "temperature"
+          },
+          {
+            value: response.data[i].relative_humidity,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "relative_humidity"
+          })
+            }
+            console.log(todoList.polarData)*/
+
       getChart ()
+
+     
+      todoList.datachart =[]
 
       function getChart () {
      $http.get('/api/homework')
               .then(function success (response) {
           chart = response.data //testchart
-          console.log(chart[0].temperature)//testchart
-          for(var i =0;i<response.data.length;i++)
+         // console.log(chart[0].temperature)//testchart
+         var check = []
+         var iot_id = []
+         var temperature = []
+         var relative_humidity = []
+         var count=0
+          for(var i =0;i<response.data.length;i++){
+              if (response.data[i].iot_id==1){
+                  count++
+                  console.log('count :'+count)
 
-
-          var ctx = document.getElementById("c").getContext("2d");
-                var data = {
-                  labels: ["iot_id1", "iot_id2", "iot_id3", "iot_id4", "iot_id5", "iot_id6", "iot_id7", "iot_id8" ,"iot_id9"],
-                  datasets: [{
-                    label: "timestamp",
-                    fillColor: "rgba(220,220,69,0.2)",
-                    strokeColor: "rgba(220,220,69,1)",
-                    pointColor: "rgba(220,220,69,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [8456, 5689, 8575, 8751, 5756, 55, 4750, 156 ,188 , 266]
-                  }, {
-                    label: "temperature",
-                    fillColor: "rgba(89,187,78,0.2)",
-                    strokeColor: "rgba(89,187,78,1)",
-                    pointColor: "rgba(89,187,78,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [chart[0].temperature, 478, 4750, 1759, 8675, 2757, 90 , 484 , 849 , 494]
-                  },{
-                    label: "relative_humidity",
-                    fillColor: "rgba(151,187,396,0.2)",
-                    strokeColor: "rgba(151,187,396,1)",
-                    pointColor: "rgba(151,187,396,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [chart[0].relative_humidity, 4578, 405, 1759, 8576, 2577, 90 , 498 ,884 ,4848]
-                  }]
-                };
-                var MyNewChart = new Chart(ctx).Line(data);
+              }
+          }
+         
+         /* var ctx = document.getElementById("c").getContext("2d");
+          var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+              label: "My First dataset",
+              fillColor: "rgba(220,220,220,0.2)",
+              strokeColor: "rgba(220,220,220,1)",
+              pointColor: "rgba(220,220,220,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: [65, 59, 80, 81, 56, 55, 40]
+            }, {
+              label: "My Second dataset",
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: [28, 48, 40, 19, 86, 27, 90]
+            }]
+          };
+           var MyNewChart = new Chart(ctx).Line(data);*/
 
         }, function error (response) {
           alert(response.data.message)
