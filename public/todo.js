@@ -1,7 +1,7 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($http,$interval) {
     var todoList = this
-    var chart
+    
 
      
     getHomeworks() // showget api
@@ -37,16 +37,30 @@ angular.module('todoApp', [])
 
     }
 
-    /*test delete*/
-      //todoList.del_id = ''
+/*testdelete*/
+    todoList.delete = function(id,index){
+        console.log(id);
+        $http.delete('/api/homework/'+id)
+          .success(function(data) {
+            alert('delete')
+            todoList.homeworks.splice(index,1)
+            //window.location='index.html'
+            
+          })
+          .error(function(data) {
+            console.log('Error: ' + data)
+          })
+    }
 
-      todoList.del = function (input_del,index) {
-        alert('delete'+'report:'+index)
-        console.log('id :'+input_del)
+
+
+    
+
+     
 
 
 
-      }
+    
 
 
 
@@ -54,16 +68,15 @@ angular.module('todoApp', [])
       function getChart1 () {
      $http.get('/api/homework')
               .then(function success (response) {
-          //chart = response.data //testchart
-         // console.log(chart[0].temperature)//testchart
+         
                   var data = {
                               labels: [],
                               datasets: [
                                   {
                                       label: "temperature",
-                                      fillColor: "rgba(220,220,220,0.2)",
-                                      strokeColor: "rgba(220,220,220,1)",
-                                      pointColor: "rgba(220,220,220,1)",
+                                      fillColor: "rgba(255,0,0,0.2)",
+                                      strokeColor: "rgba(255,0,0,1)",
+                                      pointColor: "rgba(255,0,0,1)",
                                       pointStrokeColor: "#fff",
                                       pointHighlightFill: "#fff",
                                       pointHighlightStroke: "rgba(220,220,220,1)",
@@ -71,9 +84,9 @@ angular.module('todoApp', [])
                                   },
                                   {
                                       label: "relative_humidity",
-                                      fillColor: "rgba(151,187,205,0.2)",
-                                      strokeColor: "rgba(151,187,205,1)",
-                                      pointColor: "rgba(151,187,205,1)",
+                                      fillColor: "rgba(69,187,91,0.2)",
+                                      strokeColor: "rgba(69,187,91,1)",
+                                      pointColor: "rgba(69,187,91,1)",
                                       pointStrokeColor: "#fff",
                                       pointHighlightFill: "#fff",
                                       pointHighlightStroke: "rgba(151,187,205,1)",
@@ -88,9 +101,8 @@ angular.module('todoApp', [])
                
                   for(var i =0;i<response.data.length;i++){
                     if (response.data[i].iot_id==1){
-                        
-                           myLineChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
-                    }
+                         myLineChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
+                       }
                    
                 }
                
@@ -101,41 +113,7 @@ angular.module('todoApp', [])
           }
 
 
-
-
-
-           
-
-          
-
-             
-
-            
-
-
-
-
-
-
-
-     
-
-
-      /*testchart*/
-
-
-      
-
-      //console.log(todoList.homeworks[0])
-
-      
        
-
-
-
-
-    
-   
 
 
   })
@@ -143,3 +121,54 @@ angular.module('todoApp', [])
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

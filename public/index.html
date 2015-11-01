@@ -14,7 +14,7 @@
     <h2>iot<h2>
     <div ng-controller="TodoListController as todoList">
 
-          <canvas id="c" width="1330" height="500"></canvas> // show chart by function getChart1
+          <canvas id="c" width="1000" height="500"></canvas> 
   
           
 
@@ -41,7 +41,7 @@
               iot_id: {{show.iot_id}} <br>
               temperature:{{show.temperature}} <br>
               relative_humidity: {{show.relative_humidity}} <br>
-              <button ng-click ="todoList.del(input_del , $index)">delete</button> <br>
+              <button ng-click ="todoList.delete(show._id , $index)">delete</button> <br>
 
              -------------------------------------------------------------
             </div>
