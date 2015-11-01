@@ -3,21 +3,7 @@ angular.module('todoApp', [])
     var todoList = this
     var chart
 
-     /*todoList.name ='tak'
-    
-     todoList.show =[]
-
-     todoList.add = function (input){
-        var data_input = {
-            Data: {
-               timestamp: input.timestamp,
-               iot_id: input.iot_id, 
-               temperature: input.temperature, 
-               relative_humidity: input.relative_humidity
-                }
-        }
-        todoList.show.push(data_input)
-     }*/
+     
     getHomeworks() // showget api
     /*$interval(function () {
       getHomeworks()
@@ -64,33 +50,11 @@ angular.module('todoApp', [])
 
 
 
-      /*todoList.iot = response.data
-            for(var i =0;i<response.data.length;i++) // loop for length array
-            {
-            // push data in todoList.polarData
-              todoList.polarData.push({
-            value: response.data[i].temperature, 
-            color: "#46BFBD",
-                highlight: "#5AD3D1",
-            label: "temperature"
-          },
-          {
-            value: response.data[i].relative_humidity,
-            color: "#FDB45C",
-            highlight: "#FFC870",
-            label: "relative_humidity"
-          })
-            }
-            console.log(todoList.polarData)*/
-
       getChart1 ()
-
-     
-      todoList.datachart =[]
       function getChart1 () {
      $http.get('/api/homework')
               .then(function success (response) {
-          chart = response.data //testchart
+          //chart = response.data //testchart
          // console.log(chart[0].temperature)//testchart
                   var data = {
                               labels: [],
@@ -124,15 +88,12 @@ angular.module('todoApp', [])
                
                   for(var i =0;i<response.data.length;i++){
                     if (response.data[i].iot_id==1){
-                        //temperature = response.data[i].temperature
-                        //relative_humidity = response.data[i].relative_humidity
+                        
                            myLineChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
                     }
                    
                 }
                
-                    
-
 
               }, function error (response) {
                 alert(response.data.message)
