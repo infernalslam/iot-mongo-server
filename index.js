@@ -14,10 +14,7 @@
 		var homework = require('./models/homework/homework.route.js')
 		app.use('/api/homework', homework)
 
-		/*test delete*/
-		//var objdelte = require ('./models/homework/homework.route.js')
-		//app.delete('')
-
+		
 		app.post('/', function (req, res, next) {
 		    var obj = new Model(req.body)
 		    obj.save(function (err, obj) {

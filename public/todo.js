@@ -10,14 +10,12 @@ angular.module('todoApp', [])
       getHomeworks()
       getChart1 ()
 
-    }, 15000)
+    }, 60000)
 
    function getHomeworks () {
      $http.get('/api/homework')
               .then(function success (response) {
           todoList.homeworks = response.data
-           chart = response.data /*testchart*/ 
-          //console.log(chart[0]._id)/*testchart*/
         }, function error (response) {
           alert(response.data.message)
         })
@@ -57,13 +55,7 @@ angular.module('todoApp', [])
 
 
 
-    
 
-     
-
-
-
-    
 
 
 
