@@ -5,9 +5,12 @@ angular.module('todoApp', [])
 
      
     getHomeworks() // showget api
-    /*$interval(function () {
+    getChart1 () // showchart
+    $interval(function () {
       getHomeworks()
-    }, 5000)*/
+      getChart1 ()
+
+    }, 15000)
 
    function getHomeworks () {
      $http.get('/api/homework')
@@ -64,44 +67,43 @@ angular.module('todoApp', [])
 
 
 
-      getChart1 ()
+      //getChart1 ()
       function getChart1 () {
      $http.get('/api/homework')
               .then(function success (response) {
          
-                  var data = {
-                              labels: [],
-                              datasets: [
-                                  {
-                                      label: "temperature",
-                                      fillColor: "rgba(255,0,0,0.2)",
-                                      strokeColor: "rgba(255,0,0,1)",
-                                      pointColor: "rgba(255,0,0,1)",
-                                      pointStrokeColor: "#fff",
-                                      pointHighlightFill: "#fff",
-                                      pointHighlightStroke: "rgba(220,220,220,1)",
-                                      data: []
-                                  },
-                                  {
-                                      label: "relative_humidity",
-                                      fillColor: "rgba(69,187,91,0.2)",
-                                      strokeColor: "rgba(69,187,91,1)",
-                                      pointColor: "rgba(69,187,91,1)",
-                                      pointStrokeColor: "#fff",
-                                      pointHighlightFill: "#fff",
-                                      pointHighlightStroke: "rgba(151,187,205,1)",
-                                      data: []
-                                  }
-                              ]
-                          };
+                 
+
+                          var data = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "My First dataset",
+                                        fillColor: "rgba(220,220,220,0.5)",
+                                        strokeColor: "rgba(220,220,220,0.8)",
+                                        highlightFill: "rgba(220,220,220,0.75)",
+                                        highlightStroke: "rgba(220,220,220,1)",
+                                        data: []
+                                    },
+                                    {
+                                        label: "My Second dataset",
+                                        fillColor: "rgba(151,187,205,0.5)",
+                                        strokeColor: "rgba(151,187,205,0.8)",
+                                        highlightFill: "rgba(151,187,205,0.75)",
+                                        highlightStroke: "rgba(151,187,205,1)",
+                                        data: []
+                                    }
+                                ]
+                            };
 
                var ctx = document.getElementById("c").getContext("2d")
-               var myLineChart = new Chart(ctx).Line(data);
+               var myBarChart = new Chart(ctx).Bar(data);
+
 
                
                   for(var i =0;i<response.data.length;i++){
                     if (response.data[i].iot_id==1){
-                         myLineChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
+                         myBarChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
                        }
                    
                 }
