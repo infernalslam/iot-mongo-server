@@ -4,6 +4,8 @@
 		var bodyParser = require('body-parser')
 		/*insert code*/
 		var Model  = require('./models/homework/homework.schema.js')
+		var Modellogin = require('./models/homework/homework.schema.js')
+		
 	    mongoose.connect('mongodb://localhost:27017/db_test')
 
 		app.use(express.static('public'))
@@ -13,6 +15,11 @@
 
 		var homework = require('./models/homework/homework.route.js')
 		app.use('/api/homework', homework)
+
+		/*testlogin*/
+		var login = require('./models/login/login.route.js')
+		app.use('/api/login', login)
+		/*test*/
 
 		
 		app.post('/', function (req, res, next) {
