@@ -21,15 +21,7 @@ angular.module('todoApp', [])
         })
 
     }
-
- 
-
-          
-
-
-       
-
-
+    
   })
 
 

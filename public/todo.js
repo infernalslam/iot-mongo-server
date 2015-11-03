@@ -5,16 +5,16 @@ angular.module('todoApp', [])
 
      
     getHomeworks() // showget api
-    getChart1 () // showchart
+    //getChart1 () // showchart
     $interval(function () {
       getHomeworks()
-      getChart1 ()
+      //getChart1 ()
 
     }, 60000)
 
    function getHomeworks () {
      $http.get('/api/homework')
-              .then(function success (response) {
+          .then(function success (response) {
           todoList.homeworks = response.data
         }, function error (response) {
           alert(response.data.message)
@@ -49,6 +49,7 @@ angular.module('todoApp', [])
             
           })
           .error(function(data) {
+            alert('error')
             console.log('Error: ' + data)
           })
     }
@@ -117,7 +118,7 @@ angular.module('todoApp', [])
 
   })
 
-
+ 
 
 
 

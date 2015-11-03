@@ -25,16 +25,9 @@
     })
   })
 
-/*test delete*/
-  /*router.delete('/delete/:id' ,function(req, res){
-    var id = req.params.id
-    Model.findOneAndRemove ({_id:id}) ,function (err){
-      if (err) {
-        console.log(err)
-        res.status(500).send(err)
-      }
-    }
-  })*/
+
+ 
+
 
  
 

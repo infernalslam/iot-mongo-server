@@ -4,8 +4,8 @@
 		var bodyParser = require('body-parser')
 		/*insert code*/
 		var Model  = require('./models/homework/homework.schema.js')
-		var Modellogin = require('./models/homework/homework.schema.js')
 		
+
 	    mongoose.connect('mongodb://localhost:27017/db_test')
 
 		app.use(express.static('public'))
@@ -32,6 +32,19 @@
 		      }
 		    })
 		  })
+
+		app.delete('/api/homework/:id', function (req, res ){
+	       Model.findById(req.params.id, function (err, Model) {
+	       Model.remove(function (err) {
+	          if (!err) {
+	            console.log("removed")
+	            return res.send('')
+	          } else {
+	            console.log(err)
+	          }
+	        })
+	      })
+	    })
 
 		
 
