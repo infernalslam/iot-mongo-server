@@ -2,10 +2,10 @@
   'use strict'
   var express = require('express')
   var router = express.Router()
-  var Modellogin = require('./login.schema.js') /*testlogin*/
+  var Model = require('./login.schema.js') /*testlogin*/
 
   router.get('/', function (req, res, next) {
-    Modellogin.find({}).exec(function (err, results) {
+    Model.find({}).exec(function (err, results) {
       if (err) {
         res.status(500).send(err)
       } else {
