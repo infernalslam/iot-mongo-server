@@ -10,7 +10,7 @@ angular.module('todoApp', [])
       getHomeworks()
       //getChart1 ()
 
-    }, 60000)
+    }, 3000)
 
 
    function getHomeworks () {
