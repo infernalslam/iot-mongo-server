@@ -14,7 +14,7 @@ angular.module('todoApp', [])
         .then(function success (response) {
           console.log(response)
           alert('Success')
-          window.location = "thankyou.html"
+          window.location = "login.html"
           
         }, function error (response) {
           alert(response.data.message)

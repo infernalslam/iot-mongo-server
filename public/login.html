@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="login.js"></script>
+    <!-- test chart.js-->
+   
+    
+
+ 
+  </head>
+  <body>
+    <h2>Login<h2>
+    <div ng-controller="TodoListController as todoList">   
+        <form ng-submit="todoList.adduser(input)">
+              Username :<input type="text" ng-model ="input.username"> <br>
+              password :<input type="password" ng-model ="input.password"><br>
+              <button type="submit">login</button>
+        </form> 
+    </div>
+  </body>
+</html>

@@ -7,6 +7,7 @@
     <script src="jquery-2.1.4.min.js"></script>
     <script src="Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 
  
   </head>
@@ -23,7 +24,7 @@
 
       
         <form ng-submit="todoList.submit(input)">
-              timestamp :<input type="number" ng-model ="input.timestamp"> <br>
+              <!--timestamp :<input type="number" ng-model ="input.timestamp"> <br>-->
               iot_id :<input type="number" ng-model ="input.iot_id"><br>
               temperature :<input type="number" ng-model ="input.temperature"><br>
               relative_humidity :<input type="number" ng-model ="input.relative_humidity"><br>
@@ -37,7 +38,7 @@
               report : {{$index}} <br>
               id : {{show._id}} <br>
               <!--<ng-model="input_del={{show._id}}">-->
-              timestamp: {{show.timestamp}} <br>
+              timestamp: {{todoList.time(show.timestamp)}} <br>
 
               <!--<div ng-model="timestamp=[{{show.timestamp}}]"></div>-->
               iot_id: {{show.iot_id}} <br>

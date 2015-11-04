@@ -12,6 +12,7 @@ angular.module('todoApp', [])
 
     }, 60000)
 
+
    function getHomeworks () {
      $http.get('/api/homework')
           .then(function success (response) {
@@ -19,6 +20,10 @@ angular.module('todoApp', [])
         }, function error (response) {
           alert(response.data.message)
         })
+    }
+
+    todoList.time = function (time){
+      return moment(time).format('MMMM Do YYYY, h:mm:ss a')
     }
 
     todoList.submit = function (input) {
