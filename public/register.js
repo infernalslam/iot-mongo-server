@@ -1,5 +1,5 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function() {
+  .controller('TodoListController', function($http) {
     var todoList = this
     
 
@@ -8,7 +8,7 @@ angular.module('todoApp', [])
 
 
     todoList.register = function (input) {
-      //alert('success Acount:'+input.name)
+      alert('success Acount:'+input.name)
       saveRegister(input)
     }
 

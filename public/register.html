@@ -19,35 +19,43 @@
 
     <div ng-controller="TodoListController as todoList">
 
+    <div class="container">
 
-     
-
-
-
+      
 
 
+      <div class="row">
+
+        <div class="col-md-6 col-md-offset-3">
+            <form ng-submit="todoList.register(input)">
+         <fieldset class="form-group">
+              <label>Username</label>
+                <input type="text" ng-model ="input.username" class="form-control" required> <br>
+              <label>Password</label>
+                <input type="password" ng-model ="input.password" class="form-control" required ><br>
+              
+              <label>REpassword</label>   check password :{{mode = (input.password === repassword)}}
+                <input type="password" ng-model = "repassword" class="form-control" required >
+              
+              <label>Name</label>
+                <input type="text" ng-model ="input.name" class="form-control" required><br>
+             
+              <label>Surname</label>
+                <input type="text" ng-model ="input.surname" class="form-control" required><br>
+             
+              <label>E-mail</label>  
+                <input type="email" ng-model ="input.email" class="form-control" required>
+              <button type="submit" class="btn btn-primary" ng-show = "mode">Submit</button>
+          </fieldset>
+        </form>    
+
+        </div><!--div class col-->
+      </div> <!--div row-->
 
 
 
 
-
-
-
-
-        <form ng-submit="todoList.register(input)">
-              Username :<input type="text" ng-model ="input.username"> <br>
-              password :<input type="password" ng-model ="input.password"><br>
-              repassword :<input type="password" ng-model = "input.repassword"><br>
-              password error :{{authentication}} <br>
-              name :<input type="text" ng-model ="input.name"><br>
-              surname :<input type="text" ng-model ="input.surname"><br>
-              E-mail : <input type="email" ng-model ="input.email">
-              <input type="submit">
-        </form> 
-
-        check password :{{input.password === input.repassword}}
-
-       
-    </div>
+      </div>  <!--div container-->
+    </div> <!--todoList-->
   </body>
 </html>
