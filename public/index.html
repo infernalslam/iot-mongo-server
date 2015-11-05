@@ -13,6 +13,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
+
  
   </head>
   <body>
@@ -67,8 +68,8 @@
                           <button type="submit" class="btn btn-primary">Confirm</button>
                         </div>
                         </form>
-                        search :<input type="search" ng-model = "searchText" class="form-control"> <br>
-                        <button type="button" ng-click = "todoList.refresh()">Refresh</button>
+                        <!--search-->
+                        <label>search</label><input type="search" ng-model = "searchText" class="form-control"> <br>
                         <table class="table table-striped">
                               <thead>
                                     <tr>
@@ -82,7 +83,7 @@
                                   </thead>
                               <tbody>
                                     <tr ng-repeat="show in todoList.homeworks | filter: searchText as show">
-                                          <td class="col-sm-2"><center>{{$index}}</td>
+                                          <td class="col-sm-2"><center>{{$index+1}}</td>
                                           <td class="col-sm-2"><center>{{show.iot_id}}</td>
                                           <td class="col-sm-2"><center>{{show.temperature}}</td> 
                                           <td class="col-sm-2"><center>{{show.relative_humidity}}</td>
