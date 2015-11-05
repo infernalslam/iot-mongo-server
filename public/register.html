@@ -37,12 +37,17 @@
         <form ng-submit="todoList.register(input)">
               Username :<input type="text" ng-model ="input.username"> <br>
               password :<input type="password" ng-model ="input.password"><br>
-              repassword :<input type="password"><br>
+              repassword :<input type="password" ng-model = "input.repassword"><br>
+              password error :{{authentication}} <br>
               name :<input type="text" ng-model ="input.name"><br>
               surname :<input type="text" ng-model ="input.surname"><br>
               E-mail : <input type="email" ng-model ="input.email">
               <input type="submit">
         </form> 
+
+        check password :{{input.password === input.repassword}}
+
+       
     </div>
   </body>
 </html>

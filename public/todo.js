@@ -6,8 +6,11 @@ angular.module('todoApp', [])
      
     getHomeworks() // showget api
     //getChart1 () // showchart
+    var loopget = 0
     $interval(function () {
       getHomeworks()
+      loopget ++
+      console.log('loop'+loopget)
       //getChart1 ()
 
     }, 3000)
@@ -111,6 +114,7 @@ angular.module('todoApp', [])
                 alert(response.data.message)
               })
           }
+
 
 
 

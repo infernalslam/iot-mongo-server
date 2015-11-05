@@ -67,6 +67,8 @@
                           <button type="submit" class="btn btn-primary">Confirm</button>
                         </div>
                         </form>
+                        search :<input type="search" ng-model = "searchText" class="form-control"> <br>
+                        <button type="button" ng-click = "todoList.refresh()">Refresh</button>
                         <table class="table table-striped">
                               <thead>
                                     <tr>
@@ -79,7 +81,7 @@
                                     </tr>
                                   </thead>
                               <tbody>
-                                    <tr ng-repeat="show in todoList.homeworks">
+                                    <tr ng-repeat="show in todoList.homeworks | filter: searchText as show">
                                           <td class="col-sm-2"><center>{{$index}}</td>
                                           <td class="col-sm-2"><center>{{show.iot_id}}</td>
                                           <td class="col-sm-2"><center>{{show.temperature}}</td> 
