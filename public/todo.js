@@ -3,9 +3,9 @@ angular.module('todoApp', [])
     var todoList = this
     
 
-     
+    /////////////////// fucntion get ////////////////// 
     getHomeworks() // showget api
-    //getChart1 () // showchart
+    //////////////////////////////////////////////////
     var loopget = 0
     $interval(function () {
       getHomeworks()
@@ -15,7 +15,7 @@ angular.module('todoApp', [])
 
     }, 3000)
 
-
+/////////////////////////////////////////////
    function getHomeworks () {
      $http.get('/api/homework')
           .then(function success (response) {
@@ -24,16 +24,20 @@ angular.module('todoApp', [])
           alert(response.data.message)
         })
     }
-
+/////////////////////////////////////////////
     todoList.time = function (time){
       return moment(time).format('MMMM Do YYYY, h:mm:ss a')
     }
+/////////////////////////////////////////////
 
+///////////////////////////////////////////////
     todoList.submit = function (input) {
-      //alert('yes insert')
       saveHomework(input)
     }
+/////////////////////////////////////////////
 
+
+/////////////////////////////////////////////////
     function saveHomework (data){
       $http.post('/api/homework', data) //insert object
         .then(function success (response) {
@@ -45,8 +49,12 @@ angular.module('todoApp', [])
         })
 
     }
+/////////////////////////////////////////////////
 
-/*testdelete*/
+
+
+/////////////////////////////////////////////////
+
     todoList.delete = function(id,index){
         console.log(id);
         $http.delete('/api/homework/'+id)
@@ -61,14 +69,14 @@ angular.module('todoApp', [])
             console.log('Error: ' + data)
           })
     }
+///////////////////////////////////////////////
 
 
 
 
 
 
-
-      //getChart1 ()
+      ////////////////////////////////////////////////////////// Chart js ////////////////////////////////////
       function getChart1 () {
      $http.get('/api/homework')
               .then(function success (response) {
@@ -114,7 +122,7 @@ angular.module('todoApp', [])
                 alert(response.data.message)
               })
           }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
