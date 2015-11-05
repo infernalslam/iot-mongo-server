@@ -5,20 +5,22 @@ angular.module('todoApp', [])
 
   
     todoList.adduser = function  (input) {
-          console.log('yes')
+          
           $http.get('/api/login')
             .then(function success (response) { 
               todoList.login = response.data
-               
-                for(var i =0;i<response.data.length;i++){
+                var userpass = false //status user authentication
+                for(var i =0;i<response.data.length;i++){ //forloop
                   
                   if(response.data[i].username==input.username && response.data[i].password==input.password){
                     console.log(' success : '+response.data[i].username)
+                    userpass = true
                     break;
                   }
-                  else if(response.data[i].username!=input.username && response.data[i].password!=input.password){
-                    console.log('err')
-                  }
+                } // forloop
+
+                if (userpass == false){
+                  console.log ('Error')
                 }
 
               //console.log(todoList.login)

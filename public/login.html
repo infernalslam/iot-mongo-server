@@ -4,6 +4,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="login.js"></script>
     <!-- test chart.js-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+   
    
     
 
@@ -12,11 +18,18 @@
   <body>
     <h2>Login<h2>
     <div ng-controller="TodoListController as todoList">   
-        <form ng-submit="todoList.adduser(input)">
-              Username :<input type="text" ng-model ="input.username"> <br>
-              password :<input type="password" ng-model ="input.password"><br>
-              <button type="submit">login</button>
-        </form> 
-    </div>
+
+             <div class="container">
+                <form class="form-signin" ng-submit="todoList.adduser(input)">
+                  <h2 class="form-signin-heading">Please sign in</h2>
+                  <label for="Username" class="sr-only">Username</label>
+                  <input type="text" class="form-control" placeholder="Username" required autofocus ng-model ="input.username">
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password"  class="form-control" placeholder="Password" required ng-model ="input.password">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </form>
+              </div> <!-- /container -->
+
+    </div> <!-- ng-controller -->
   </body>
 </html>
