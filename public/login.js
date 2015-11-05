@@ -30,6 +30,11 @@ angular.module('todoApp', [])
             })
         }
 
+        todoList.getindex = function (){
+
+          window.location = "index.html"
+        }
+
     
   })
 
