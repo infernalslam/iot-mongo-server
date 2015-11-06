@@ -5,6 +5,7 @@
     <script src="report.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script src="Chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   </head>
   <body>
     <h2>report</h2>
@@ -12,7 +13,43 @@
 
     <div ng-controller="TodoListController as todoList">
     			
-    			<canvas id="myPieChart" width="1200" height="600"></canvas>
+    			
+
+
+
+			<div class="container">
+				<table class="table">
+					<tr>
+						<td class="success"> iot 1<canvas id="myPieChart" width="400" height="200"></canvas> </td>
+						<td class="success"> iot 2<canvas id="myPieChart2" width="400" height="200"></canvas> </td>
+						<td class="success"> iot 3<canvas id="myPieChart3" width="400" height="200"></canvas> </td>
+					</tr>
+					<tr>
+						<td class="warning"> iot 4<canvas id="myPieChart4" width="400" height="200"></canvas></td>
+						<td class="warning"> iot 5<canvas id="myPieChart5" width="400" height="200"></canvas></td>
+						<td class="warning"> iot 6<canvas id="myPieChart6" width="400" height="200"></canvas></td>
+					</tr>
+					<tr>
+						<td class="danger"> iot 7<canvas id="myPieChart7" width="400" height="200"></canvas></td>
+						<td class="danger"> iot 8<canvas id="myPieChart8" width="400" height="200"></canvas></td>
+						<td class="danger"> iot 9<canvas id="myPieChart9" width="400" height="200"></canvas></td>
+					</tr>
+					<tr>
+						<td class="danger"> iot 0<canvas id="myPieChart0" width="400" height="200"></canvas></td>
+					</tr>
+					
+				</table>
+			</div>
+
+
+
+
+
+
+
+
+
+    			
     			
 
     </div>
