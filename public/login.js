@@ -21,6 +21,7 @@ angular.module('todoApp', [])
 
                 if (userpass == false){
                   console.log ('Error')
+                  alert('no account try again')
                 } else if (userpass==true) {
                   window.location = "report.html"
                 }
