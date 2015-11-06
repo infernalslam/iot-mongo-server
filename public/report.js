@@ -1,5 +1,5 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function($http) {
+  .controller('TodoListController', function($http ,$interval) {
     var todoList = this;
     
 
@@ -15,6 +15,26 @@ angular.module('todoApp', [])
     getChart8()
     getChart9()
     getChart0()
+
+    $interval(function () {
+    getChart1()
+    getChart2()
+    getChart3()
+    }, 10000)
+
+    $interval(function (){
+    getChart4()
+    getChart5()
+    getChart6()
+    getChart7()
+    },11000)
+
+    $interval (function (){
+      getChart8()
+      getChart9()
+      getChart0()
+    },12000)
+
 
       function getChart1 () {
         $http.get('/api/homework')

@@ -69,7 +69,9 @@
                         </div>
                         </form>
                         <!--search-->
-                        <label>search</label><input type="search" ng-model = "searchText" class="form-control"> <br>
+                        <label>search :IOT_ID</label><input type="search" ng-model = "searchText.iot_id" class="form-control"> <br>
+                        <label>search :temperature</label><input type="search" ng-model = "searchText.temperature" class="form-control"> <br>
+                        <label>search :relative_humidity</label><input type="search" ng-model = "searchText.relative_humidity" class="form-control"> <br>
                         <table class="table table-striped">
                               <thead>
                                     <tr>
@@ -82,7 +84,7 @@
                                     </tr>
                                   </thead>
                               <tbody>
-                                    <tr ng-repeat="show in todoList.homeworks | filter: searchText as show">
+                                    <tr ng-repeat="show in todoList.homeworks | filter: searchText">
                                           <td class="col-sm-2"><center>{{$index+1}}</td>
                                           <td class="col-sm-2"><center>{{show.iot_id}}</td>
                                           <td class="col-sm-2"><center>{{show.temperature}}</td> 
