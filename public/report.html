@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Report</title>
-</head>
-<body>
-	
-</body>
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="report.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="Chart.js"></script>
+  </head>
+  <body>
+    <h2>report</h2>
+
+
+    <div ng-controller="TodoListController as todoList">
+    			
+    			<canvas id="myPieChart" width="1200" height="600"></canvas>
+    			
+
+    </div>
+  </body>
 </html>

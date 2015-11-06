@@ -21,6 +21,8 @@ angular.module('todoApp', [])
 
                 if (userpass == false){
                   console.log ('Error')
+                } else if (userpass==true) {
+                  window.location = "report.html"
                 }
 
               //console.log(todoList.login)

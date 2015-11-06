@@ -1,66 +1,68 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function($http,$interval) {
-    var todoList = this
-
-
-
-
+  .controller('TodoListController', function($http) {
+    var todoList = this;
     
-      ////////////////////////////////////////////////////////// Chart js ////////////////////////////////////
+
+
+
+    getChart1()
+
       function getChart1 () {
-     $http.get('/api/homework')
+        $http.get('/api/homework')
               .then(function success (response) {
          
                  
 
-                          var data = {
-                                labels: [],
-                                datasets: [
-                                    {
-                                        label: "My First dataset",
-                                        fillColor: "rgba(220,220,220,0.5)",
-                                        strokeColor: "rgba(220,220,220,0.8)",
-                                        highlightFill: "rgba(220,220,220,0.75)",
-                                        highlightStroke: "rgba(220,220,220,1)",
-                                        data: []
-                                    },
-                                    {
-                                        label: "My Second dataset",
-                                        fillColor: "rgba(151,187,205,0.5)",
-                                        strokeColor: "rgba(151,187,205,0.8)",
-                                        highlightFill: "rgba(151,187,205,0.75)",
-                                        highlightStroke: "rgba(151,187,205,1)",
-                                        data: []
-                                    }
-                                ]
-                            };
-
-               var ctx = document.getElementById("c").getContext("2d")
-               var myBarChart = new Chart(ctx).Bar(data);
+                         var data = []
 
 
-               
-                  for(var i =0;i<response.data.length;i++){
+              var temp = 0
+              var relative = 0
+              var count = 1
+              ////////////////////////////////////////////////
+              for(var i =0;i<response.data.length;i++){
                     if (response.data[i].iot_id==1){
-                         myBarChart.addData([response.data[i].temperature, response.data[i].relative_humidity] ,"IOT_ID : 1");
+                      
+                        count ++
+                        temp  = temp + response.data[i].temperature
+                        relative = relative + response.data[i].relative_humidity
                        }
                    
                 }
+               
+
+
+
+              /////////////////////////////////////////////////////////////////
+               var ctx = document.getElementById("myPieChart").getContext("2d")
+               var myPieChart = new Chart(ctx).Pie(data[0]);
+
+               ////////////////////////////////////////////////////////////////
+               var averagetemp = temp / count
+               var averagerela = relative / count
+///////////////////////////////////////////////////////////////////////////////
+                myPieChart.addData({
+                                value: averagetemp,
+                                color: "#B48EAD",
+                                highlight: "#C69CBE",
+                                label: "temperature"
+                            });
+
+              myPieChart.addData({
+                                value: averagerela,
+                                color: "#49F046",
+                                highlight: "#49F018",
+                                label: "relative_humidity"
+                            })
+
+//////////////////////////////////////////////////////////////////
+               
+                  
                
 
               }, function error (response) {
                 alert(response.data.message)
               })
           }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-          
-
-
-       
-
 
   })
