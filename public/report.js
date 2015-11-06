@@ -40,8 +40,6 @@ angular.module('todoApp', [])
                 }
                
 
-
-
               /////////////////////////////////////////////////////////////////
                var ctx = document.getElementById("myPieChart").getContext("2d")
                var myPieChart = new Chart(ctx).Pie(data[0]);
